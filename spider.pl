@@ -1,5 +1,5 @@
 #!C:/Perl/bin/perl
-#COPYRIGHT TSUBASA KATO 2003-2014
+#COPYRIGHT Ppctweakies 2003-2015
 use Getopt::Std;
 use vars qw($opt_i $opt_r);
 
