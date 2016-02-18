@@ -215,7 +215,7 @@ open (U, ">$urls")       or die "Unable to open: $urls";
 open (D, ">$descr")      or die "Unable to open: $descr";
 foreach (@lines){
 	chomp;
-	my ($u, $k, $d) = split(/;/, $_, 3);
+	my ($u, $k, $d) = split(/¥t/, $_, 3);
 	print K "$k\n";
 	print U "$u\n";
 	print D "$d\n";
@@ -230,7 +230,7 @@ open (U, ">rev_$urls")       or die "Unable to open: rev_$urls";
 open (D, ">rev_$descr")      or die "Unable to open: rev_$descr";
 foreach (@lines){
 	chomp;
-	my ($u, $k, $d) = split(/;/, $_, 3);
+	my ($u, $k, $d) = split(/¥t/, $_, 3);
 	print K "$k\n";
 	print U "$u\n";
 	print D "$d\n";
@@ -245,7 +245,7 @@ open (U, ">sort_$urls")       or die "Unable to open: rev_$urls";
 open (D, ">sort_$descr")      or die "Unable to open: rev_$descr";
 foreach (@lines){
 	chomp;
-	my ($u, $k, $d) = split(/;/, $_, 3);
+	my ($u, $k, $d) = split(/¥t/, $_, 3);
 	print K "$k\n";
 	print U "$u\n";
 	print D "$d\n";
@@ -260,7 +260,7 @@ open (U, ">revsort_$urls")       or die "Unable to open: rev_$urls";
 open (D, ">revsort_$descr")      or die "Unable to open: rev_$descr";
 foreach (@lines){
 	chomp;
-	my ($u, $k, $d) = split(/;/, $_, 3);
+	my ($u, $k, $d) = split(/¥t/, $_, 3);
 	print K "$k\n";
 	print U "$u\n";
 	print D "$d\n";
