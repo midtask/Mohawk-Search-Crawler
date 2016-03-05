@@ -27,7 +27,7 @@ my $db_layout   = "##URL##\t##KEYWORDS##\t##DESCRIPTION##\n";
 my $max_description_length = 400;
 my $max_keywords_length    = 800;
 my $generate_keywords      = 1;
-my $domain_max_timeout     = 1;
+my $domain_max_timeout     = 0;
 
 my $guess_encoding_problems     = 1;
 my $encoding_problems_threshold = 0.2;
