@@ -27,6 +27,7 @@ my $db_layout   = "##URL##\t##KEYWORDS##\t##DESCRIPTION##\n";
 my $max_description_length = 400;
 my $max_keywords_length    = 800;
 my $generate_keywords      = 1;
+my $domain_max_timeout     = 1;
 
 my $guess_encoding_problems     = 1;
 my $encoding_problems_threshold = 0.2;
@@ -290,6 +291,13 @@ sub print_iteration_stats {
 sub should_process_url {
 	my $url = shift;
 	
+	if ($domain_max_timeout){
+		my ($protocol, $rest) = $url =~ m|^([^:/]*):(.*)$|;
+		my ($server_host, $port, $document) = $rest =~ m|^//([^:/]*):*([0-9]*)/*([^:]*)$|;
+		$domain_times{$iteration}{$server_host} ||= time();
+		return 0 if (time() - $domain_times{$iteration}{$server_host} > $domain_max_timeout);
+	}
+	
 	foreach my $exclude_rule (@exclude_url_rules){
 		return 0 if ($url =~ /$exclude_rule/);
 	}
@@ -297,7 +305,7 @@ sub should_process_url {
 		return 1 if ($url =~ /$include_rule/);
 	}
 	
-	return 0;	
+	return 0;
 }
 
 ##############################################
